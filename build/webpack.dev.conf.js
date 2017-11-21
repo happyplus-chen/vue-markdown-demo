@@ -35,6 +35,30 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     }
   },
   plugins: [
+    new webpack.LoaderOptionsPlugin({
+      options: {
+          postcss: function(){
+              return [
+                  require("postcss-salad")({
+                    "browsers": ["ie > 8", "last 2 versions"],
+                    "features": {
+                      "bem": {
+                        "shortcuts": {
+                          "component": "b",
+                          "modifier": "m",
+                          "descendent": "e"
+                        },
+                        "separators": {
+                          "descendent": "__",
+                          "modifier": "--"
+                        }
+                      }
+                    }
+                  })
+              ]
+          }
+      }
+  }),
     new webpack.DefinePlugin({
       'process.env': require('../config/dev.env')
     }), 
