@@ -1,241 +1,155 @@
 <style scoped>
-  .headerWrapper {
-    height: 80px;
-  }
+.header .nav:after {
+    clear: both
+}
 
-  .header {
+.header .nav:after,.header .nav:before {
+    display: table;
+    content: ""
+}
+
+.headerWrapper {
+    height: 80px
+}
+
+.header {
     height: 80px;
     background-color: #fff;
     color: #fff;
     top: 0;
     left: 0;
     width: 100%;
-    line-height: @height;
+    line-height: 80px;
     z-index: 100;
+    position: relative
+}
+
+.header .nav-item.lang-item,.header .nav-item:last-child {
+    cursor: default;
+    margin-left: 34px
+}
+
+.header .nav-item.lang-item span,.header .nav-item:last-child span {
+    opacity: .8
+}
+
+.header .nav-item.lang-item .nav-lang,.header .nav-item:last-child .nav-lang {
+    cursor: pointer;
+    display: inline-block;
+    height: 100%;
+    color: #888
+}
+
+.header .nav-item.lang-item .nav-lang:hover,.header .nav-item:last-child .nav-lang:hover {
+    color: #409eff
+}
+
+.header .nav-item.lang-item .nav-lang.active,.header .nav-item:last-child .nav-lang.active {
+    font-weight: 700;
+    color: #409eff
+}
+
+.header .container {
+    height: 100%;
+    box-sizing: border-box
+}
+
+.header .nav-lang-spe {
+    color: #888
+}
+
+.header h1 {
+    margin: 0;
+    float: left;
+    font-size: 32px;
+    font-weight: 400
+}
+
+.header h1 a {
+    color: #333;
+    text-decoration: none;
+    display: block
+}
+
+.header h1 span {
+    font-size: 12px;
+    display: inline-block;
+    width: 34px;
+    height: 18px;
+    border: 1px solid hsla(0,0%,100%,.5);
+    text-align: center;
+    line-height: 18px;
+    vertical-align: middle;
+    margin-left: 10px;
+    border-radius: 3px
+}
+
+.header .nav {
+    float: right;
+    height: 100%;
+    line-height: 80px;
+    background: transparent;
+    padding: 0;
+    margin: 0
+}
+
+.header .nav-gap {
     position: relative;
+    width: 1px;
+    height: 80px;
+    padding: 0 20px
+}
 
-    .container {
-      height: 100%;
-      box-sizing: border-box;
-    }
+.header .nav-gap:before {
+    content: "";
+    position: absolute;
+    top: calc(50% - 8px);
+    width: 1px;
+    height: 16px;
+    background: #ebebeb
+}
 
-    .nav-lang-spe {
-      color: #888;
-    }
+.header .nav-logo-small,.header .nav-logo {
+    vertical-align: sub
+}
 
-    h1 {
-      margin: 0;
-      float: left;
-      font-size: 32px;
-      font-weight: normal;
+.header .nav-logo-small {
+    display: none
+}
 
-      a {
-        color: #333;
-        text-decoration: none;
-        display: block;
-      }
+.header .nav-item {
+    margin: 0;
+    float: left;
+    list-style: none;
+    position: relative;
+    cursor: pointer
+}
 
-      span {
-        font-size: 12px;
-        display: inline-block;
-        width: 34px;
-        height: 18px;
-        border: 1px solid rgba(255, 255, 255, .5);
-        text-align: center;
-        line-height: 18px;
-        vertical-align: middle;
-        margin-left: 10px;
-        border-radius: 3px;
-      }
-    }
+.header .nav-item a.active:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    bottom: 15px;
+    left: calc(50% - 7px);
+    width: 14px;
+    height: 4px;
+    background: #409eff
+}
 
-    .nav {
-      float: right;
-      height: 100%;
-      line-height: 80px;
-      background: transparent;
-      @utils-clearfix;
-      padding: 0;
-      margin: 0;
-    }
+.header .nav-item a {
+    text-decoration: none;
+    color: #888;
+    display: block;
+    padding: 0 22px
+}
 
-    .nav-gap {
-      position: relative;
-      width: 1px;
-      height: 80px;
-      padding: 0 20px;
+.header .nav-item a.active,.header .nav-item a:hover {
+    color: #333
+}
 
-      &::before {
-        content: '';
-        position: absolute;
-        top: calc(50% - 8px);
-        width: 1px;
-        height: 16px;
-        background: #ebebeb;
-      }
-    }
-
-    .nav-logo,
-    .nav-logo-small {
-      vertical-align: sub;
-    }
-
-    .nav-logo-small {
-      display: none;
-    }
-
-    .nav-item {
-      margin: 0;
-      float: left;
-      list-style: none;
-      position: relative;
-      cursor: pointer;
-    
-      &.nav-algolia-search {
-        cursor: default;
-      }
-    
-      &.lang-item,
-      &:last-child {
-        cursor: default;
-        margin-left: 34px;
-
-        span {
-          opacity: .8;
-        }
-
-        .nav-lang {
-          cursor: pointer;
-          display: inline-block;
-          height: 100%;
-          color: #888;
-
-          &:hover {
-            color: #409EFF;
-          }
-          &.active {
-             font-weight: bold;
-             color: #409EFF;
-           }
-        }
-      }
-
-      a {
-        text-decoration: none;
-        color: #888;
-        display: block;
-        padding: 0 22px;
-
-        &.active,
-        &:hover {
-          color: #333;
-        }
-
-        &.active::after {
-          content: '';
-          display: inline-block;
-          position: absolute;
-          bottom: 15px;
-          left: calc(50% - 7px);
-          width: 14px;
-          height: 4px;
-          background: #409EFF;
-        }
-      }
-    }
-  }
-
-  .nav-dropdown {
-    margin-bottom: 6px;
-    padding-left: 18px;
-    width: 100%;
-
-    span {
-      display: block;
-      width: 100%;
-      font-size: 16px;
-      color: #888;
-      line-height: 40px;
-      transition: .2s;
-      padding-bottom: 6px;
-      user-select: none;
-
-      &:hover {
-         cursor: pointer;
-       }
-    }
-
-    i {
-      transition: .2s;
-      font-size: 12px;
-      color: #979797;
-      transform: translateY(-2px);
-    }
-
-    @when active {
-      span, i {
-        color: #409EFF;
-      }
-      i {
-        transform: rotateZ(180deg) translateY(3px);
-      }
-    }
-
-    &:hover {
-      span, i {
-        color: #409EFF;
-      }
-    }
-  }
-  
-  .nav-dropdown-list {
-    width: auto;
-  }
-
-  @media (max-width: 850px) {
-    .header {
-      .nav-logo {
-        display: none;
-      }
-      .nav-logo-small {
-        display: inline-block;
-      }
-      .nav-item {
-        margin-left: 6px;
-
-        &.lang-item,
-        &:last-child {
-          margin-left: 10px;
-        }
-         
-        a {
-          padding: 0 5px;
-        }
-      }
-      .nav-theme-switch, .nav-algolia-search {
-        display: none;
-      }
-    }
-  }
-
-  @media (max-width: 700px) {
-    .header {
-      .container {
-        padding: 0 12px;
-      }
-      .nav-item a,
-      .nav-lang {
-        font-size: 12px;
-        vertical-align: top;
-      }
-      .nav-dropdown {
-        padding: 0;
-      }
-      .nav-gap {
-        padding: 0 8px;
-      }
-    }
-  }
+.header .nav-item.nav-algolia-search {
+    cursor: default
+}
 </style>
 <template>
   <div class="headerWrapper">
@@ -258,9 +172,6 @@
 
         <!-- nav -->
         <ul class="nav">
-          <li class="nav-item nav-algolia-search" v-show="isComponentPage">
-            <algolia-search></algolia-search>
-          </li>
           <li class="nav-item">
             <router-link
               active-class="active"
@@ -287,28 +198,7 @@
           </li>
 
           <!-- 版本选择器 -->
-          <li class="nav-item" v-show="isComponentPage">
-            <el-dropdown
-                trigger="click"
-                class="nav-dropdown"
-                :class="{ 'is-active': dropdownVisible }">
-              <span>
-                {{ langConfig.dropdown }}{{ version }}
-                <i class="el-icon-arrow-down el-icon--right"></i>
-              </span>
-              <el-dropdown-menu
-                  slot="dropdown"
-                  class="nav-dropdown-list"
-                  @input="handleDropdownToggle">
-                <el-dropdown-item
-                    v-for="item in Object.keys(versions)"
-                    :key="item"
-                    @click.native="switchVersion(item)">
-                  {{ item }}
-                </el-dropdown-item>
-              </el-dropdown-menu>
-            </el-dropdown>
-          </li>
+
 
           <!-- lang -->
           <li class="nav-item lang-item">
@@ -329,7 +219,7 @@
           
           <!--theme picker-->
           <li class="nav-item nav-theme-switch" v-show="isComponentPage">
-            <theme-picker></theme-picker>
+            <!-- <theme-picker></theme-picker> -->
           </li>
         </ul>
       </div>
@@ -337,24 +227,25 @@
   </div>
 </template>
 <script>
-  import ThemePicker from './theme-picker.vue';
-  import AlgoliaSearch from './search.vue';
+  // import ThemePicker from './theme-picker.vue';
+  // import AlgoliaSearch from './search.vue';
   import compoLang from '../i18n/component.json';
   // import { version } from 'main/index.js';
+  const version = '1.0.0'
 
   export default {
     data() {
       return {
         active: '',
         versions: [],
-        version:'1.0.0',
+        version,
         dropdownVisible: true
       };
     },
 
     components: {
-      ThemePicker,
-      AlgoliaSearch
+      // ThemePicker,
+      // AlgoliaSearch
     },
 
     computed: {
@@ -386,19 +277,19 @@
       }
     },
 
-    // created() {
-    //   const xhr = new XMLHttpRequest();
-    //   xhr.onreadystatechange = _ => {
-    //     if (xhr.readyState === 4 && xhr.status === 200) {
-    //       const versions = JSON.parse(xhr.responseText);
-    //       this.versions = Object.keys(versions).slice(-2).reduce((prev, next) => {
-    //         prev[next] = versions[next];
-    //         return prev;
-    //       }, {});
-    //     }
-    //   };
-    //   xhr.open('GET', '/versions.json');
-    //   xhr.send();
-    // }
+    created() {
+      const xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = _ => {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          const versions = JSON.parse(xhr.responseText);
+          this.versions = Object.keys(versions).slice(-2).reduce((prev, next) => {
+            prev[next] = versions[next];
+            return prev;
+          }, {});
+        }
+      };
+      xhr.open('GET', '/versions.json');
+      xhr.send();
+    }
   };
 </script>

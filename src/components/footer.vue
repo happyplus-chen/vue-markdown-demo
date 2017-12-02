@@ -43,119 +43,160 @@
   </footer>
 </template>
 
-<style>
-  .footer {
-    background-color: #F7FBFD;
+<style scoped>
+ .footer {
+    background-color: #f7fbfd;
     width: 100%;
     padding: 40px 150px;
     margin-top: -340px;
     box-sizing: border-box;
-    height: 340px;
+    height: 340px
+}
 
-    .container {
-      box-sizing: border-box;
-      width: auto;
-    }
+.footer .container {
+    box-sizing: border-box;
+    width: auto
+}
 
-    .footer-main {
-      font-size: 0;
-      display: inline-block;
-      vertical-align: top;
-      margin-right: 110px;
-    
-      h4 {
-        font-size: 18px;
-        color: #333;
-        line-height: 1;
-        margin: 0 0 15px 0;
-      }
+.footer .footer-main {
+    font-size: 0;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 110px
+}
 
-      .footer-main-link {
-        display: block;
-        margin: 0;
-        line-height: 2;
-        font-size: 14px;
-        color: #666;
+.footer .footer-main h4 {
+    font-size: 18px;
+    color: #333;
+    line-height: 1;
+    margin: 0 0 15px
+}
 
-        &:hover {
-          color: #333;
-        }
-      }
-    }
+.footer .footer-main .footer-main-link {
+    display: block;
+    margin: 0;
+    line-height: 2;
+    font-size: 14px;
+    color: #666
+}
 
-    .footer-social {
-      float: right;
-      text-align: right;
-    
-      .footer-social-title {
-        color: #666;
-        font-size: 18px;
-        line-height: 1;
-        margin: 0 0 20px 0;
-        padding: 0;
-        font-weight: bold;
-      }
+.footer .footer-main .footer-main-link:hover {
+    color: #333
+}
 
-      .elementdoc {
-        transition: .3s;
-        display: inline-block;
-        line-height: 32px;
-        text-align: center;
-        color: #c8d6e8;
-        background-color: transparent;
-        size: 32px;
-        font-size: 32px;
-        vertical-align: middle;
-        margin-right: 20px;
-        &:hover {
-          transform: scale(1.2);
-          color: #8D99AB;
-        }
-      }
+.footer .footer-social {
+    float: right;
+    text-align: right
+}
 
-      .doc-icon-gitter {
-        margin-right: 0;
-      }
-    }
-  }
+.footer .footer-social .footer-social-title {
+    color: #666;
+    font-size: 18px;
+    line-height: 1;
+    margin: 0 0 20px;
+    padding: 0;
+    font-weight: 700
+}
 
-  .el-popover.footer-popover {
+.footer .footer-social .elementdoc {
+    transition: .3s;
+    display: inline-block;
+    line-height: 32px;
+    text-align: center;
+    color: #c8d6e8;
+    background-color: transparent;
+    width: 32px;
+    height: 32px;
+    font-size: 32px;
+    vertical-align: middle;
+    margin-right: 20px
+}
+
+.footer .footer-social .elementdoc:hover {
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+    color: #8d99ab
+}
+
+.footer .footer-social .doc-icon-gitter {
+    margin-right: 0
+}
+
+.el-popover.footer-popover {
     padding: 0;
     min-width: 120px;
     line-height: normal;
-    box-shadow: 0 0 11px 0 rgba(174, 187, 211, 0.24);
+    box-shadow: 0 0 11px 0 rgba(174,187,211,.24)
+}
 
-    .footer-popover-title {
-      border-bottom: solid 1px #eaeefb;
-      height: 30px;
-      line-height: 30px;
-      text-align: center;
-      color: #99a9bf;
-      background-color: #f8f9fe;
-    }
+.el-popover.footer-popover .footer-popover-title {
+    border-bottom: 1px solid #eaeefb;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #99a9bf;
+    background-color: #f8f9fe
+}
 
-    img {
-      size: 100px;
-      margin: 10px;
+.el-popover.footer-popover img {
+    width: 100px;
+    height: 100px;
+    margin: 10px
+}
+
+@media (max-width: 768px) {
+    .footer .footer-social {
+        display:none
     }
-  }
-  @media (max-width: 768px) {
-    .footer {
-      .footer-social {
-        display: none;
-      }
-    }
-  }
+}
+.footer-nav i {
+    transition: .3s;
+    color: #999;
+    vertical-align: baseline
+}
+
+.footer-nav {
+    padding: 40px 0;
+    color: #333;
+    font-size: 14px
+}
+
+.footer-nav:after {
+    content: "";
+    display: block;
+    clear: both
+}
+
+.footer-nav-link {
+    cursor: pointer;
+    transition: .3s
+}
+
+.footer-nav-link:hover,.footer-nav-link:hover i {
+    color: #409eff
+}
+
+.footer-nav-left {
+    float: left;
+    margin-left: -4px
+}
+
+.footer-nav-right {
+    float: right;
+    margin-right: -4px
+}
+
 </style>
 
 <script type="text/babel">
   import compoLang from '../i18n/component.json';
   // import { version } from 'main/index.js';
+  const version = '1.0.0'
 
   export default {
     data() {
       return {
-        version:'1.0.0'
+        version
       };
     },
 

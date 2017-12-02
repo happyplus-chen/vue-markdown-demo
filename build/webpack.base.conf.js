@@ -4,11 +4,11 @@ const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 const markdown = require('./markdown.webpack.js');
-function resolve (dir) {
+function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
+
 module.exports = {
-  context: path.resolve(__dirname, '../'),
   entry: {
     app: './src/main.js'
   },
@@ -32,10 +32,10 @@ module.exports = {
         test: /\.md$/,
         use: [
           {
-              loader: 'vue-markdown-loader',
-              options: markdown.getMarkDownSetting()
+            loader: 'vue-markdown-loader',
+            options: markdown.getMarkDownSetting()
           }
-      ]
+        ]
       },
       {
         test: /\.vue$/,

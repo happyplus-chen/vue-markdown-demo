@@ -22,163 +22,134 @@
       <transition name="text-slide">
         <span v-show="hovering">{{ controlText }}</span>
       </transition>
-      <el-tooltip effect="dark" :content="langConfig['tooltip-text']" placement="right">
-        <transition name="text-slide">
-          <el-button
-            v-show="hovering || isExpanded"
-            size="small"
-            type="text"
-            class="control-button"
-            @click.stop="goJsfiddle">
-            {{ langConfig['button-text'] }}
-          </el-button>
-        </transition>
-      </el-tooltip>
     </div>
   </div>
 </template>
 
 <style>
-  .demo-block {
+ .demo-block {
     border: solid 1px #ebebeb;
     border-radius: 3px;
     transition: .2s;
-
-    &.hover {
-      box-shadow: 0 0 8px 0 rgba(232, 237, 250, .6), 0 2px 4px 0 rgba(232, 237, 250, .5);
-    }
-
-    code {
-      font-family: Menlo, Monaco, Consolas, Courier, monospace;
-    }
-
-    .demo-button {
-      float: right;
-    }
-
-    .source {
-      padding: 24px;
-    }
-
-    .meta {
-      background-color: #fafafa;
-      border-top: solid 1px #eaeefb;
-      overflow: hidden;
-      height: 0;
-      transition: height .2s;
-    }
-
-    .description {
-      padding: 20px;
-      box-sizing: border-box;
-      border: solid 1px #ebebeb;
-      border-radius: 3px;
-      font-size: 14px;
-      line-height: 22px;
-      color: #666;
-      word-break: break-word;
-      margin: 10px;
-      background-color: #fff;
-
-      p {
-        margin: 0;
-        line-height: 26px;
-      }
-
-      code {
-        color: #5e6d82;
-        background-color: #e6effb;
-        margin: 0 4px;
-        display: inline-block;
-        padding: 1px 5px;
-        font-size: 12px;
-        border-radius: 3px;
-        height: 18px;
-        line-height: 18px;
-      }
-    }
-
-    .highlight {
-      pre {
-        margin: 0;
-      }
-
-      code.hljs {
-        margin: 0;
-        border: none;
-        max-height: none;
-        border-radius: 0;
-
-        &::before {
-          content: none;
-        }
-      }
-    }
-
-    .demo-block-control {
-      border-top: solid 1px #eaeefb;
-      height: 44px;
-      box-sizing: border-box;
-      background-color: #fff;
-      border-bottom-left-radius: 4px;
-      border-bottom-right-radius: 4px;
-      text-align: center;
-      margin-top: -1px;
-      color: #d3dce6;
-      cursor: pointer;
-      position: relative;
-    
-      &.is-fixed {
-        position: fixed;
-        bottom: 0;
-        width: 868px;
-      }
-
-      i {
-        font-size: 16px;
-        line-height: 44px;
-        transition: .3s;
-        &.hovering {
-          transform: translateX(-40px);
-        }
-      }
-
-      > span {
-        position: absolute;
-        transform: translateX(-30px);
-        font-size: 14px;
-        line-height: 44px;
-        transition: .3s;
-        display: inline-block;
-      }
-
-      &:hover {
-        color: #409EFF;
-        background-color: #f9fafc;
-      }
-
-      & .text-slide-enter,
-      & .text-slide-leave-active {
-        opacity: 0;
-        transform: translateX(10px);
-      }
-      
-      .control-button {
-        line-height: 26px;
-        position: absolute;
-        top: 0;
-        right: 0;
-        font-size: 14px;
-        padding-left: 5px;
-        padding-right: 25px;
-      }
-    }
   }
+.demo-block code {
+    font-family: Menlo, Monaco, Consolas, Courier, monospace;
+}
+.demo-block .demo-button {
+    float: right;
+}
+.demo-block .source {
+    padding: 24px;
+}
+.demo-block .meta {
+    background-color: #fafafa;
+    border-top: solid 1px #eaeefb;
+    overflow: hidden;
+    height: 0;
+    transition: height .2s;
+}
+.demo-block .description {
+    padding: 20px;
+    box-sizing: border-box;
+    border: solid 1px #ebebeb;
+    border-radius: 3px;
+    font-size: 14px;
+    line-height: 22px;
+    color: #666;
+    word-break: break-word;
+    margin: 10px;
+    background-color: #fff;
+}
+.demo-block .description p {
+    margin: 0;
+    line-height: 26px;
+}
+.demo-block .description code {
+    color: #5e6d82;
+    background-color: #e6effb;
+    margin: 0 4px;
+    display: inline-block;
+    padding: 1px 5px;
+    font-size: 12px;
+    border-radius: 3px;
+    height: 18px;
+    line-height: 18px;
+}
+.demo-block .highlight pre {
+    margin: 0;
+}
+.demo-block .highlight code.hljs {
+    margin: 0;
+    border: none;
+    max-height: none;
+    border-radius: 0
+}
+.demo-block .highlight code.hljs::before {
+    content: none;
+}
+.demo-block .demo-block-control {
+    border-top: solid 1px #eaeefb;
+    height: 44px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    text-align: center;
+    margin-top: -1px;
+    color: #d3dce6;
+    cursor: pointer;
+    position: relative;
+}
+.demo-block .demo-block-control i {
+    font-size: 16px;
+    line-height: 44px;
+    transition: .3s
+}
+.demo-block .demo-block-control i.hovering {
+    -ms-transform: translateX(-40px);
+        transform: translateX(-40px);
+}
+.demo-block .demo-block-control > span {
+    position: absolute;
+    -ms-transform: translateX(-30px);
+        transform: translateX(-30px);
+    font-size: 14px;
+    line-height: 44px;
+    transition: .3s;
+    display: inline-block;
+}
+.demo-block .demo-block-control .control-button {
+    line-height: 26px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 14px;
+    padding-left: 5px;
+    padding-right: 25px;
+}
+.demo-block .demo-block-control.is-fixed {
+    position: fixed;
+    bottom: 0;
+    width: 868px;
+}
+.demo-block .demo-block-control:hover {
+    color: #409EFF;
+    background-color: #f9fafc;
+}
+.demo-block .demo-block-control .text-slide-enter, .demo-block .demo-block-control .text-slide-leave-active {
+    opacity: 0;
+    -ms-transform: translateX(10px);
+        transform: translateX(10px);
+}
+.demo-block.hover {
+    box-shadow: 0 0 8px 0 rgba(232, 237, 250, .6), 0 2px 4px 0 rgba(232, 237, 250, .5);
+}
 </style>
 
 <script type="text/babel">
   import compoLang from '../i18n/component.json';
-  import { version } from 'element-ui'
+  // import { version } from 'main/index.js';
+  const version = '1.0.0'
 
   export default {
     data() {
@@ -198,42 +169,7 @@
     },
 
     methods: {
-      goJsfiddle() {
-        const { script, html, style } = this.jsfiddle;
-        const resourcesTpl = '<scr' + 'ipt src="//unpkg.com/vue/dist/vue.js"></scr' + 'ipt>' +
-        '\n<scr' + `ipt src="//unpkg.com/element-ui@${ version }/lib/index.js"></scr` + 'ipt>';
-        let jsTpl = (script || '').replace(/export default/, 'var Main =').trim();
-        let htmlTpl = `${resourcesTpl}\n<div id="app">\n${html.trim()}\n</div>`;
-        let cssTpl = `@import url("//unpkg.com/element-ui@${ version }/lib/theme-chalk/index.css");\n${(style || '').trim()}\n`;
-        jsTpl = jsTpl
-          ? jsTpl + '\nvar Ctor = Vue.extend(Main)\nnew Ctor().$mount(\'#app\')'
-          : 'new Vue().$mount(\'#app\')';
-        const data = {
-          js: jsTpl,
-          css: cssTpl,
-          html: htmlTpl,
-          panel_js: 3,
-          panel_css: 1
-        };
-        const form = document.getElementById('fiddle-form') || document.createElement('form');
-        form.innerHTML = '';
-        const node = document.createElement('textarea');
-
-        form.method = 'post';
-        form.action = 'https://jsfiddle.net/api/post/library/pure/';
-        form.target = '_blank';
-
-        for (let name in data) {
-          node.name = name;
-          node.value = data[name].toString();
-          form.appendChild(node.cloneNode());
-        }
-        form.setAttribute('id', 'fiddle-form');
-        form.style.display = 'none';
-        document.body.appendChild(form);
-
-        form.submit();
-      },
+      
 
       scrollHandler() {
         const { top, bottom, left } = this.$refs.meta.getBoundingClientRect();
